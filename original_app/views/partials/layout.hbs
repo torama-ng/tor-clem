@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="{{author}}">
+
+    <title> {{{title}}}</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/layout.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/offcanvas.css" rel="stylesheet">
+    <link href="/stylesheets/my.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+            <a href="#" class="navbar-brand pl-2"><span class="fas fa-code fa-lg"></span><strong class="to">TORAMA</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="sech" class="ml-5 mt-0">
+                <div class="input-group">
+                    <form action="/search_videos" method="POST">
+                        <input type="text" name="search" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link text-white"><strong>Home</strong></a>
+                    </li>
+                    {{#if user}}
+
+                    <li class="nav-item">
+                        <a href="/user/create_playlist" class="nav-link text-white"><strong>Upload Video</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/user/logout" class="nav-link text-white"><strong>Logout</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/categories/all" class="nav-link text-white"><strong>List Videos</strong></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown"><strong
+                                class="vid">Video Categories</strong></a>
+                        <div class="dropdown-menu">
+                            <a href="/categories/nodejs" class="dropdown-item">nodejs</a>
+                            <a href="/categories/bootstrap" class="dropdown-item">Bootstrap</a>
+                            <a href="/categories/handlebars" class="dropdown-item">Handlebars</a>
+                            <a href="/categories/javascript" class="dropdown-item">Javascript</a>
+                            <a href="/categories/mongod" class="dropdown-item">Mongodb</a>
+                            <a href="/categories/upload" class="dropdown-item">Uploads</a>
+                            <a href="/categories/Vue" class="dropdown-item">Vuejs</a>
+                            <a href="/categories/react" class="dropdown-item">React</a>
+                            <a href="/categories/angular" class="dropdown-item">Angular</a>
+                            <a href="/categories/html" class="dropdown-item">HTML</a>
+                            <a href="/categories/css" class="dropdown-item">css/sass</a>
+                            <a href="/categories/linux" class="dropdown-item">Linux</a>
+                            <a href="/categories/python" class="dropdown-item">Python</a>
+                            <a href="/categories/bash" class="dropdown-item">Bash</a>
+                            <a href="/categories/crypto" class="dropdown-item">Crypto</a>
+                            <a href="/categories/usermgt" class="dropdown-item">User Mgt</a>
+                        </div>
+                    </li>
+
+                    {{else}}
+                    <li class="nav-item">
+                        <a href="/users/login" class="nav-link">Login</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="/users/register" class="nav-link">Register</a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+
+        </nav>
+
+        <main role="main" class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{# if user}}
+                    <div class="alert alert-primary">Welcome {{user.name}}</div>
+                    {{/if}}
+                    {{#if success_msg}}
+                    <div class="alert alert-success">{{success_msg}}</div>
+                    {{/if}}
+
+                    {{#if error_msg}}
+                    <div class="alert alert-danger">{{error_msg}}</div>
+                    {{/if}}
+
+                    {{#if error}}
+                    <div class="alert alert-danger">{{error}}</div>
+                    {{/if}}
+
+                </div>
+            </div>
+            <div>{{{body}}}</div>
+        </main>
+
+        <footer>
+            <br /><br /> <br />
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a href="https://torama.ng"> <span class="fas fa-code fa-md"> Torama Innovation Hub</span></a>
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP"
+        crossorigin="anonymous"></script>
+    <script src="/javascripts/handlebars.js" type='text/javascript'></script>
+    <script src="/javascripts/misc.js"></script>
+</body>
+
+</html>

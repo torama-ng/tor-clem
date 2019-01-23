@@ -1,0 +1,71 @@
+
+
+
+{{#if checker}}
+
+<h1 style="color: darkgreen; font-size:18xp;"> Welcome To Torama Tech {{ user.name}} </h1>
+
+
+<p>{{videoTitle}} </p>
+
+<p> Recommended for you </p>
+
+<video id="rec-video" style="max-width:100%;height:auto;" controls src=" {{recommended.vid_url}}" type="video/mp4">
+</video>
+
+<p> {{recommended.vid_name}}</p>
+
+<p style="font-size:12px;color:black;font-style:normal"> All Videos - watch now</p>
+
+
+<div class="top_cont" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center">
+    {{#each videoFiles}}
+
+    <div style="position:relative;margin:1% 2px; max-width:25%;max-height:20%">
+        <video style="max-height:100%;max-width:100%;" controls src="/{{vid_url}}" type="video/mp4">
+        </video>
+
+        <h5 style="max-width:100%;color:black;font-size:17px"> {{formatMe vid_name}}</h5>
+        <h5 style="color:red;font-size:15px"> {{vid_views}} views</h5>
+        <a style="background:blue;color: #6b82c7;;font-size:19px;border:white solid 2px; padding:10px; border-radius:0.6rem;" href="/viewer/view/{{vid_url}}/{{_id}}">View Video</a>
+
+    </div>
+    {{/each}}
+</div>
+
+{{else}}
+
+
+<h1 style="color: darkgreen; font-size:18xp;"> Welcome To Torama Tech </h1>
+
+<p>{{videoTitle}} </p>
+
+
+<p> Recommended for you </p>
+
+<video id="rec-video" style="max-width:100%;height:auto;" controls src=" {{recommended.url}}" type="video/mp4">
+</video>
+
+<p> {{recommended.url}}</p>
+
+<p style="font-size:12px;color:black;font-style:normal"> All Videos - watch now</p>
+
+<div class="top_cont" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center">
+    {{#each videoFiles}}
+
+    <div style="position:relative;margin:1% 2px; max-width:20%;max-height:20%">
+        <video style="max-height:100%;max-width:100%;" controls src="{{url}}" type="video/mp4">
+        </video>
+
+        <h5> {{formatMe url}}</h5>
+        <a href="/viewer/view/{{url}}">View Video</a>
+
+    </div>
+
+    {{/each}}
+
+</div>
+
+{{/if}}
+
+

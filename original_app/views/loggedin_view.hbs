@@ -1,0 +1,76 @@
+{{#if userData.image}}
+
+
+
+<div class="all_container">
+
+
+
+        <img style="background:white;border:gray solid 1px;border-radius: 4rem; max-width: 10%;max-height: 10%;" src="/{{userData.image}}"
+                alt="{{userData.name}}">
+
+        </br>
+        <p>
+                <h1 style="font:18px Arial;color: green">Welcome Back {{userData.name}} </h1>
+                <h5 style="font-size:11px">Login sucessful with {{ userData.email}} .</h5>
+
+
+                <p>
+
+                        <h5 style="font-style:italic;color: rgb(102, 8, 8)">The following below are your
+                                information</h5>
+                        <h5 style="font-size:13px; margin-top:1rem">Name - {{userData.name}} .</h5>
+                        <h5 style="font-size:13px">Email - {{userData.email}} .</h5>
+                        <h5 style="font-size:13px">phone - {{userData.phone}} .</h5>
+
+
+                        <h5 style="font:18px Arial;color: green">You can change your profile picture</h5>
+
+                        <form class="" action="/user/upload_image" enctype="multipart/form-data" method="POST">
+
+                                <input  type="file" name="image">
+                                <input type="submit" name="btnSubmit" value="Change Profile" />
+                        </form>
+
+
+                </p>
+                <a style="margin-top:1rem;border:green solid 1px;background:green;color:white;border-radius:0.5rem;padding:0.6rem" href="/user/user_playlist">My Playlist</a>
+                </br>
+                <a  style="margin-top:1rem;border:green solid 1px;background:green;color:white;border-radius:0.5rem;padding:0.6rem" href="/user/user_playlist"href="/user/create_playlist">Create a Playlist</a>
+                </br>
+                <a  style="margin-top:1rem;border:green solid 1px;background:green;color:white;border-radius:0.5rem;padding:0.6rem" href="/user/user_playlist"href="/user/logout">Logout</a>
+                </br>
+                <a   style="margin-top:1rem"href="/">Go to Home</a>
+
+        </p>
+
+</div>
+
+{{else}}
+
+<div class="all_container">
+        <h5 style="font-style:italic;color: rgb(102, 8, 8)">Profile pictures makes user experience come alive</h5>
+        <h5>Upload a profile picture now.</h5>
+        <form class="" action="/user/upload_image" enctype="multipart/form-data" method="POST">
+
+                <input class="btn btn-outline-success my-2 my-sm-0" type="file" name="image">
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="btnSubmit" value="Upload" />
+        </form>
+
+
+
+        </br>
+        {{!-- <img style="background:white;border:gray solid 1px;border-radius: 4rem; max-width: 10%;max-height: 10%;"
+                src="{{userData.image}}" alt=" {{userData.name}}"> --}}
+        <p>
+                <h1 style="font:18px Arial;color: green">Welcome Back {{userData.name}} </h1>
+                <h5 style="font:18px Arial;color: black">Login sucessful with {{ userData.email}} .</h5>
+
+                <h5 style="font:18px Arial;color: black">Token - {{token}} .</h5>
+
+                <a href="/">Go to Home</a>
+
+        </p>
+</div>
+
+{{/if}}

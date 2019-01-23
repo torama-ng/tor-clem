@@ -1,0 +1,25 @@
+
+
+
+<h5> My playlist</h5>
+<h5 style="color:green">#{{list.length}} videos in my playlist</h5>
+<div class="top_cont" style="display:flex;flex-wrap:wrap">
+
+{{#each list}}
+
+
+<div style="position:relative;margin:5% 10px; max-width:15%">
+  <video  style="max-height:100%;max-width:100%;" src="{{vid_url}}" type="video/mp4" controls="" alt="{{vid_name}}">
+    </video>
+    </br>
+    <h5 class="card-title">{{vid_name}}</h5>
+    <h5 >Duration - {{vid_duration}}</h5>
+    <a href="" >views - {{vid_views}}</a>
+    </br>
+    <a href="/viewer/playlist{{vid_url}}" >View Video</a>
+
+</div>
+
+{{/each}}
+</div>
+

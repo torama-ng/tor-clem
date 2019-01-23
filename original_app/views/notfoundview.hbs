@@ -1,0 +1,33 @@
+
+
+<div class="grid">
+    <div class="title">
+        <p>
+            <h4 style="color:green">No video file found that matches the name
+                {{title}} </h4>
+        </p>
+
+    </div>
+    <div class="Header"> Header</div>
+    <div class="sidebar"> Sidebar</div>
+    <div class="content">
+
+        <p> # of Videos 0
+        </p>
+
+         <p> View other interesting videos
+        </p>
+
+
+
+        <div class="video_container">
+            {{#each videoFiles}}
+
+            <video class="vid_class" style="max-height:100%;max-width:25%;" controls src="{{this}}" type="video/mp4">
+            </video>
+
+            {{/each}}
+        </div>
+
+
+   

@@ -1,0 +1,16 @@
+
+
+<h1>{{videoTitle}}</h1>
+
+<p> # of Videos {{ videoFiles.length }}</p>
+
+<div class="video_container">
+{{#each videoFiles}}
+    
+        <video class="vid_class"style="max-height:100%;max-width:25%;" controls src="{{this}}" type="video/mp4">
+        </video>
+
+{{/each}}
+</div>
+
+

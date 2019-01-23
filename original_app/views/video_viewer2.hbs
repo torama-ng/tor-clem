@@ -1,0 +1,87 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col w85">
+
+      {{!-- Start of Main Video Viewer --}}
+      <div class="row">
+
+        <div class="col w100">
+          <div class="card">
+            <video class="bd-placeholder-img card-img-top" src="{{vid_url}}" controls="controls">
+              <source type="video/mp4">
+
+              Your browser does not support video html 5 video tag
+            </video>
+
+            <div class="card-body">
+              <p class="card-text" id="videotitle">{{{vid_name}}}</p> <!-- formatMe is a custom helper -->
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted" id="vid-0"></small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {{!-- Start of enter comment section --}}
+      <div class="row">
+        <div class="col w100">
+          <form action="/viewer/comments/{{_id}}" method="POST">
+            <input class="form-control mr-sm-2" style="width:100%" type="text" name="comments" placeholder="Enter comments here">
+            <input class="btn btn-outline-success my-2 my-sm-0" style="width:30%" type="submit" value="send">
+          </form>
+        </div>
+      </div>
+
+      {{!-- Start of All comments section --}}
+      <div class="row">
+
+        {{#each list}}
+
+        <div class="section" style="display:flex;align-items:center">
+          <h5 style="max-width:50%;background:green;color:white;font-size:19px;padding:5px; border-radius:3rem">{{GetFirstName
+            user_name}}</h5>
+          <h5 style=" margin-left:5px;max-width:100%;color:blue;font-size:15px">{{user_name}}</h5>
+        </div>
+        <h5 style="color:black;font-size:13px">{{comment}}</h5>
+
+
+        {{/each}}
+
+      </div>
+
+    </div>
+
+    {{!-- Start of All Categories --}}
+    <div class="col w10">
+
+      <div class="col w75">
+        {{#each allList}}
+
+        <div class="vids" onclick="playcVideo('{{this}}')">
+          <video style="max-height:100%;max-width:80%;" src="{{vid_url}}" type="video/mp4" controls="" alt="{{vid_name}}">
+          </video>
+          <h5 style="max-width:80%;color:black;font-size:15px"> {{vid_name}}</h5>
+          <h5 style="color:red;font-size:13px"> {{vid_views}} views</h5>
+          <a style="max-width:60%;font-size:17px;border:green solid 1px; padding:5px; color:green; border-radius:0.6rem;margin-bottom:5px;"
+            href="/viewer/view/{{vid_url}}/{{_id}}">View
+            Video</a>
+        </div>
+
+        {{/each}}
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
