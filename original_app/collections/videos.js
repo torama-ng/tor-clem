@@ -11,10 +11,10 @@ var Schema = mongoose.Schema;
 var VideoSchema = new Schema({
     vid_url: { type: String, required: true },
     vid_name: { type: String, required: true },
-    vid_views: { type: Number, required: false },
+    vid_views: { type: Number, required: false},
     vid_uploader: { type: String, required: false },
     vid_category: { type: String, required: false },
-    vid_thumbnail: { type: String, required: false },
+    vid_thumbnail: { type: String, required: false},
     upload_date: { type: Date, default: Date.now},
     vid_comments: {
         user_name: String,

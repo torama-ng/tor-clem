@@ -116,9 +116,10 @@ router.post('/sign_up', (req, res, next) => {
     //Make the dir if not exists
     mkdirSync("profile_pics/user_images/");
 
-    userData.find({ email: req.body.email }, (err, doc) => {
+    userData.findOne({email: req.body.email }, (err, doc) => {
         if (err) throw err;
         if (doc) {
+            console.log(doc);
             res.render("forgot_password", {
                 userData: items,
                 error: "User with this email already exists"

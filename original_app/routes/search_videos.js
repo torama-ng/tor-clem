@@ -9,8 +9,6 @@ router.use(session({ secret: "_ajjvnjjcbvhbhvLiveNow", resave: false, saveUninit
 var videoData = require('../collections/videos');
 
 
-
-
 /* GET Search page and string. */
 router.get('/',(req,res,next)=>{
     if(req.session.user){
@@ -38,12 +36,16 @@ router.post('/', function (req, res, next) {
                 user: req.session.user
             });
         } else {
-            console.log(doc);
-            res.render('view', {
-                videoTitle: `No videos found that matches ${search_text}`,
-                videoFiles: doc,
+            
+            videoData.find({},(errN,dox)=>{
+                if(errN) throw errN;
+                console.log(dox);
+                res.render('view', {
+                videoTitle: `No videos found that matches ${search_text}, see available videos below`,
+                videoFiles: dox,
                 user: req.session.user
             });
+            })
         }
     });
 }else{

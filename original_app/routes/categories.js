@@ -22,7 +22,7 @@ router.get('/:category', function (req, res, next) {
                 console.log(doc);
                 if(err) throw err;
                 if(doc.length != 0){
-                    res.render('view', {
+                    res.render('view2', {
                         videoTitle: `List of all videos`,
                         videoFiles: doc,
                         videoDir: category,
@@ -45,7 +45,7 @@ router.get('/:category', function (req, res, next) {
 
             if(err) throw err;
             if(doc.length != 0){
-                res.render('view', {
+                res.render('view2', {
                     videoTitle: `${category} Videos`,
                     videoFiles: doc,
                     videoDir: category,

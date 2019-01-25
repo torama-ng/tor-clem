@@ -161,6 +161,24 @@ For the navigation search bar
   margin-top: -30px!important;
   margin-bottom: 2px!important;
 }
+/* Vid image styling   */
+.vids{
+  max-width:60%;
+  height:20%;
+  margin:7px 5px;
+  display: flex;
+  flex-direction: column;
+  border:yellow solid 1px;
+  border-radius:0.6rem;
+  justify-content:center;
+  align-items: center;
+}
+
+.vid_images{
+  width:101%;
+  border-radius:0.6rem;
+  margin-bottom:10px;
+}
 
 .search_bar{
   display: flex;

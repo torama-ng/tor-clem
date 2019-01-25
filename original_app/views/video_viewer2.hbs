@@ -41,21 +41,24 @@
       </div>
 
       {{!-- Start of All comments section --}}
-      <div class="row">
+      
 
         {{#each list}}
 
-        <div class="section" style="display:flex;align-items:center">
-          <h5 style="max-width:50%;background:green;color:white;font-size:19px;padding:5px; border-radius:3rem">{{GetFirstName
-            user_name}}</h5>
-          <h5 style=" margin-left:5px;max-width:100%;color:blue;font-size:15px">{{user_name}}</h5>
+        <div class="col w100" style="margin-top:10px;">
+          <div class="section" style="display:flex;align-items:center">
+            <h5 style="max-width:100%;background:green;color:white;font-size:19px;padding:10px; border-radius:4rem">{{
+              @index}}</h5>
+            <h5 style=" margin-left:2px;max-width:100%;color:black;font-size:15px;font-weight:600">{{user_name}}</h5>
+          </div>
+          <h5 style="color:rgb(27, 26, 26);font-family:Arial, Helvetica, sans-serif;font-size:17px;margin-left:1rem;font-weight:100">{{comment}}</h5>
         </div>
-        <h5 style="color:black;font-size:13px">{{comment}}</h5>
-
 
         {{/each}}
 
-      </div>
+      
+
+
 
     </div>
 
@@ -66,13 +69,11 @@
         {{#each allList}}
 
         <div class="vids" onclick="playcVideo('{{this}}')">
-          <video style="max-height:100%;max-width:80%;" src="{{vid_url}}" type="video/mp4" controls="" alt="{{vid_name}}">
-          </video>
-          <h5 style="max-width:80%;color:black;font-size:15px"> {{vid_name}}</h5>
-          <h5 style="color:red;font-size:13px"> {{vid_views}} views</h5>
-          <a style="max-width:60%;font-size:17px;border:green solid 1px; padding:5px; color:green; border-radius:0.6rem;margin-bottom:5px;"
-            href="/viewer/view/{{vid_url}}/{{_id}}">View
-            Video</a>
+          <img class="vid_images" src="/{{vid_thumbnail}}">
+          </img>
+          <p style="max-width:80%;color:black;font-size:15px"> {{vid_name}}</h5>
+            <h5 style="color:red;font-size:13px"> {{vid_views}} views</h5>
+            <a style="color:black;margin-bottom:10px" href="/viewer/view/{{vid_url}}/{{_id}}">Watch Video</a>
         </div>
 
         {{/each}}

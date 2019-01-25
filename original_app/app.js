@@ -84,18 +84,6 @@ app.use(function(req, res, next) {
 });
 
 
-
-
-// Handlebars helpers
-hbs.registerHelper('if_eqs', function(a, b, opts) {
-  if (a == b) {
-    return opts.fn(this);
-  } else {
-    return opts.inverse(this);
-  }
-});
-
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

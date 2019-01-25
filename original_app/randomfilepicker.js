@@ -45,6 +45,8 @@ var findVideos = function (dir, fileList) {
                     splitpath = video.split(".");
                     snapshot = splitpath[0];
 
+                    //var vid = "'" + video + "'";
+                   // console.log(vid);
                     pathToFile = path.join(__dirname, "videos", fileElements, video);
                     pathToSnapshot = path.join(__dirname, "thumbnails", `${snapshot}.jpg`);
 
