@@ -26,6 +26,8 @@ const mkdirSync = function (dirPath) {
     }
 }
 
+
+
 router.use(fileUpload());
 //router.use(sendgrid());
 
@@ -49,6 +51,8 @@ router.get('/sign_up', function (req, response, next) {
     }
 });
 
+
+
 /*
 
 User login page is rendered
@@ -61,12 +65,34 @@ router.get('/login', (req, res, next) => {
             user: req.session.user
         });
     } else {
-        res.render('login', {
-            user: ""
+        videoData.find({}).limit(3).exec(function(err,doc){
+            if(err) throw err;
+            res.render('login', {
+                user: "",
+                videoFiles:doc
+            });
+
         });
+       
     }
 
 });
+
+router.get('/login_start', (req, res, next) => {
+    if (req.session.user) {
+        res.render("already_logged_in", {
+            userData: req.session.user,
+            user: req.session.user
+        });
+    } else {
+        res.render('login2', {
+            user: ""
+        });
+       
+    }
+
+});
+
 
 /*
 

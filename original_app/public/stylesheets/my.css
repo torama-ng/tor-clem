@@ -9,7 +9,7 @@ body {
     margin-top: -57px!important;
     margin-left: -30px!important;
     margin-right: -30px!important;
-    background-color: rgb(102, 8, 8)!important;
+    background-color: rgb(34, 34, 33)!important;
   }
   
   .text-white:hover {
@@ -56,8 +56,8 @@ body {
   }
 
   .jumbotron {
-    background-color: gray;
-    color: white;
+    background-color: white;
+    
 
   }
 
@@ -67,6 +67,7 @@ body {
     border:dimgray solid 1px; 
     margin: 5px;
     margin-top: 10px;
+    color: black;
     border-radius: 6px;
   }
 
@@ -103,7 +104,7 @@ body {
   
 
   input[type="submit"]:hover {
-    background: #2f81b8;
+    background: yellow;
     background: linear-gradient(-45deg, #2f81b8 7px, transparent 7px);
       transition: background 2s ease;
   }

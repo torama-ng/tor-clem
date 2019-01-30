@@ -1,29 +1,46 @@
+<div class="container-fluid">
 
-<div class="container">
+
+<h5 style="font:16px Arial;margin: 20px;color: black">
+            <strong>Torama Innovation Hub, The best place for learning ... </strong></h5>
+            <h3 style="font:16px Arial;margin: 20px;color: rgb(58, 54, 54)">
+              Learn faster and understand by teaching yourself with our sort out program  
+            </h3>
+</h3>
+
+    <div class="row"  style="float: none; margin: 0 auto;">
+        
+        {{#each videoFiles }}
+        <div class="col-md-4 col-lg-3 col-sm-12">
+            <div class="card mb-3 shadow-sm">
+                <img class="bd-placeholder-img card-img-top" id="video-{{@index}}" src="/{{vid_thumbnail}}">
+                </img>
+                <div class="card-body">
+                    <p class="card-text">{{vid_name}}</p> <!-- formatMe is a custom helper -->
 
 
-    <div class="page-header">
+                    <a href="/viewer/view/{{vid_url}}/{{_id}}">Watch Video</a>
 
-        <h3 style="font:16px Arial;margin: 20px;color: darkgreen">
-            User Login</h3>
+                    <small class="text-muted" id="vid-{{@index}}"></small>
 
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+
+
+       
     </div>
 
-    <div class="jumbotron">
+<div class="row" style="float: none; margin: 0 auto;">
+     <h5 href="/user/login_start"style="font:14px Arial;color:black;">
+         Take our courses now  <i class="fal fa-arrow-right"></i></h5>
+    </div>
 
-            <form action="/user/login" method="POST">
-                <input type="text" name="email" placeholder="Enter email"><br />
-                <input type="password" name="password" placeholder="Enter password"> <br />
-                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Login">
-            </form>
-
-            <br />
-
-            <a class="btn btn-primary" href="/auth/facebook"> facebook login</a>
-
-            No account Yet? <a href="/user/sign_up"> Sign Up</a>
-
+<div class="row" style="float: none; margin: 0 auto;">
+     <a href="/user/login_start"style="font:25px Arial;margin: 20px;background: darkgreen;color:white;padding:1rem;border-radius:0.4rem;">
+            GET STARTED</a>
     </div>
 
 </div>
-
