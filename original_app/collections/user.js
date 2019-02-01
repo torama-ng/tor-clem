@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // DB constants 
-const url = "mongodb://localhost:27017/Toramadb";
+const url = "mongodb://localhost:27017/toramadb";
 const _collectionname = "torama_users";
 
 //Connect to the database using mongoose
