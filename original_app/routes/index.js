@@ -39,6 +39,9 @@ folders.forEach(function (folder, index) {
 const videoData = require('../collections/videos');
 
 
+// Load and call the subjects collections from the collections folder
+const subjectsData = require('../collections/subjects');
+
 const allVideos = require('../randomfilepicker');
 var videosSync = [];
 
@@ -66,6 +69,56 @@ router.get('/', function (req, res, next) {
 
 });
 
+<<<<<<< HEAD
+=======
+
+router.get('/dataloader',(req,res,next)=>{
+  subjects = fs.readdirSync(videosPath);
+  
+  subjects.forEach(folder => {
+    
+    // First check the folder if it exists on the collection, before inserting
+    subjectsData.findOne({name:folder}, (err, doc)=>{
+      if(err) throw err;
+      if(doc){
+        // Folder already exists in the collection, so do nothing
+        res.send('data already in database');
+      }else{
+        var item = {
+          name: folder
+        }
+
+        // subjects to dcollection
+        var subject = new subjectsData(item);
+        subject.save();
+
+        res.send('Data Loaded successfully');
+      }
+    })
+  });
+
+})
+
+function getName(txt) {
+  var url = txt.split('/');
+  var name = url[1];
+  return name;
+}
+
+function getCategory(txt) {
+  var url = txt.split('/');
+  var name = url[0];
+  return name;
+}
+
+
+function convertToThumbnail(fileElements, video) {
+  splitpath = video.split(".");
+  snapshot = splitpath[0];
+
+  pathToFile = path.join(__dirname, "videos", fileElements, video);
+  pathToSnapshot = path.join(__dirname, "thumbnails", `${snapshot}.jpg`);
+>>>>>>> 6d3c240465bee4508bccaa88982db5a68501137e
 
 
 
