@@ -1,0 +1,30 @@
+
+{{#if user}}
+
+<div class="container">
+
+{{#if data}}
+{{#each data}}
+    <details>
+
+        <summary>{{name}} ( #{{courses.length}} )</summary>
+
+{{#each courses}}
+
+<div class="cont" style="max-width:100%;max-heigth:100%;padding:1rem;border:gray solid 1px; margin:4px 0px;">
+    <p> {{this.filename}}</p>
+    <h5 style="color:black;font-size:10px"> duration - {{this.duration}}</h5>
+    <h5 style="color:black;font-size:10px"> {{this.Description}}</h5>
+   <video src="/{{this.url}}" controls="" style="max-width:50%;max-height:50%;"></video>
+   </div>
+{{/each}}
+    </details>
+{{/each}}
+</div>
+{{else}}
+     <div class="alert alert-danger">No data found that matches your search</div> 
+{{/if}}
+
+{{else}}
+     <div class="alert alert-danger">Please login</div> 
+{{/if}}

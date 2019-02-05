@@ -14,7 +14,8 @@ var auth = require('./routes/auth');
 var categories = require('./routes/categories');
 var randomvideos = require('./routes/randomvideos');
 var search_videos = require('./routes/search_videos');
-
+var courses = require('./routes/courses/courses');
+var data = require('./routes/data/data');
 
 
 var app = express();
@@ -74,6 +75,8 @@ app.use('/viewer',viewer);
 app.use('/auth',auth);
 app.use('/randomvideos', randomvideos);
 app.use('/search_videos', search_videos);
+app.use('/courses', courses);
+app.use('/data', data);
 
 
 

@@ -1,0 +1,33 @@
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <button onclick="openFolder()"> {{videoDir}}</button>
+            
+        </div>
+
+     <div class="col-md-6">
+
+    {{#each videoFiles}}
+
+    <div class="video_files" style="display:none;width:20%;height:40%;margin:7px 5px;border:yellow solid 1px;border-radius:0.6rem;justify-content:center">
+
+        <img src="/{{vid_thumbnail}}" class="vid_images"></img>
+        <p style="width:80%;font-size:12px;margin-left:10px;color:rgb(58, 55, 55)">{{vid_name}}</p>
+       <a style="color:black;font-size:15px;margin-left:10px;font-weight:700"href="/viewer/view/{{vid_url}}/{{_id}}">Watch Video</a> 
+        
+    </div>
+
+    {{/each}}
+</div>
+
+<div id="videoview" class="col-md-8">
+    <h5></h5>
+    
+
+</div>
+
+</div>
+</div>

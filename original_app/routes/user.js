@@ -65,15 +65,15 @@ router.get('/login', (req, res, next) => {
             user: req.session.user
         });
     } else {
-        videoData.find({}).limit(3).exec(function(err,doc){
-            if(err) throw err;
+        videoData.find({}).limit(3).exec(function (err, doc) {
+            if (err) throw err;
             res.render('login', {
                 user: "",
-                videoFiles:doc
+                videoFiles: doc
             });
 
         });
-       
+
     }
 
 });
@@ -88,7 +88,7 @@ router.get('/login_start', (req, res, next) => {
         res.render('login2', {
             user: ""
         });
-       
+
     }
 
 });
@@ -142,7 +142,7 @@ router.post('/sign_up', (req, res, next) => {
     //Make the dir if not exists
     mkdirSync("profile_pics/user_images/");
 
-    userData.findOne({email: req.body.email }, (err, doc) => {
+    userData.findOne({ email: req.body.email }, (err, doc) => {
         if (err) throw err;
         if (doc) {
             console.log(doc);
@@ -196,47 +196,52 @@ Post request for login
 */
 router.post('/login', (req, res, next) => {
 
+
     var email = req.body.email;
     var password = req.body.password;
 
-    console.log(email);
-    userData.findOne({ email: email }, (err, doc) => {
-        if (err) {
-            // Email is not found in database
-            res.render('email_not_found', {
-                error: 'User with the provided email, not found',
-                user: ""
-            })
-            console.log('No Value found that matches');
 
-        } else {
-            var user_password = doc.password;
-            var decryptedPword = cryptr.decrypt(user_password);
 
-            if (decryptedPword === password) {
-                // provided password matches
-                req.session.user = doc;
-
-                res.render('loggedin_view', {
-                    userData: req.session.user,
-                    token: "token____urhfhdvhbhvbhbhbbmn",
-                    user: doc
-                });
-            } else {
-
-                // Email is found but password does not match users input
-                console.log('Password not correct');
-
-                res.render('forgot_password', {
-                    userData: doc,
-                    error: 'Wrong Password, Forgot your password?',
+        console.log(password);
+        userData.findOne({ email: email }, (err, doc) => {
+            if (err) {
+                // Email is not found in database
+                res.render('email_not_found', {
+                    error: 'User with the provided email, not found',
                     user: ""
                 })
+                console.log('No Value found that matches');
+
+            } else {
+                var user_password = doc.password;
+                var decryptedPword = cryptr.decrypt(user_password);
+
+                if (decryptedPword === password) {
+                    // provided password matches
+                    req.session.user = doc;
+
+                    res.render('loggedin_view', {
+                        userData: req.session.user,
+                        token: "token____urhfhdvhbhvbhbhbbmn",
+                        user: doc
+                    });
+                } else {
+
+                    // Email is found but password does not match users input
+                    console.log('Password not correct');
+
+                    res.render('forgot_password', {
+                        userData: doc,
+                        error: 'Wrong Password, Forgot your password?',
+                        user: ""
+                    })
+
+                }
 
             }
 
-        }
-    });
+        });
+    
 })
 
 /*
@@ -362,7 +367,7 @@ router.get('/user_playlist', (req, res, next) => {
 
 
                 res.render('user_playlist', {
-                    list:doc,
+                    list: doc,
                     user: req.session.user
                 })
             }

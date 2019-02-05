@@ -45,7 +45,7 @@ router.get('/:category', function (req, res, next) {
 
             if(err) throw err;
             if(doc.length != 0){
-                res.render('view2', {
+                res.render('view3', {
                     videoTitle: `${category} Videos`,
                     videoFiles: doc,
                     videoDir: category,
