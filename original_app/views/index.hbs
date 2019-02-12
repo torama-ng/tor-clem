@@ -1,15 +1,17 @@
 
 {{#if user}}
-    <div class="row container-fluid">
-        <div class="col w70">
+<div class="container-fluid">
+    <div class="row">
+        
+        <div class="col-md-6">
             Play Area
         </div>
-        <div class="col w30">
+        <div class="col-md-6">
             Select area
         </div>
     </div>
-    <h4>Available Course Video Categories</h4>
-    <div class="container" >    
+    <h4>All Available course categories on Torama</h4>
+     
       
       <div class="row">
         <!-- Place all category items in a Card-->
@@ -17,7 +19,7 @@
         {{#each videoGroup}}
 
             <div class="card icard bg-light ml-1 px-1 mb-1   ">
-                <a class="card-link" href="/categories/{{this.category}}">
+                <a class="card-link" href="/courses/{{this.category}}">
                     <img class="card-img" src="/images/thumbnails/{{this.category}}.jpg" alt="Card image">
                  
                     <div class="card_text">
@@ -34,7 +36,11 @@
                       
             </div>
         {{/each}}
-        </div>
+       
+    </div>
+
+
+
     </div>
         
 {{else}}

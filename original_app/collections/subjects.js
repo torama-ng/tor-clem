@@ -26,7 +26,7 @@ var SubjectSchema = new Schema({
 
 
 // Creating a collection
-var subData = mongoose.model(_collectionname, SubjectSchema);
+var subData = mongoose.model(_collectionname,SubjectSchema);
 
 module.exports = subData;
 
